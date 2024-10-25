@@ -1,3 +1,2 @@
 # recuadrator
-![2024-10-24 14_37_29-Recuadrador de texto para código](https://github.com/user-attachments/assets/1143cf62-6c3c-4983-8df5-7135ab44f002)
-
+![image](https://github.com/user-attachments/assets/0959d012-7ec7-4630-a0d6-a6714d5dcd7a)
