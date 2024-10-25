@@ -79,8 +79,8 @@ class MainWindow(QMainWindow):
             # Calculo el ancho de las líneas
             lenMax = max(len(string) for string in texto)
             espacioEnElMedio = self.spinBox_ancho.value() if not self.radioButton_ancho.isChecked() else lenMax + 2
-            if espacioEnElMedio < lenMax:
-                QMessageBox.warning(self, 'Ancho muy pequeño', 'El ancho ingresado es menor al de su texto, por favor ingrese un ancho mayor.')
+            if espacioEnElMedio < lenMax + 2:
+                QMessageBox.warning(self, 'Ancho muy pequeño', 'El ancho ingresado es menor al requerido. Por favor, ingrese un ancho mayor.')
                 return                
 
             # Construyo el texto recuadrado
