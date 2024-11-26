@@ -257,7 +257,7 @@
             <item>
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Final</string>
+               <string>Final:</string>
               </property>
              </widget>
             </item>
