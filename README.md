@@ -6,6 +6,8 @@ Aplicación sencilla para recuadrar texto monoespaciado (por ejemplo código) co
 * `Ancho ajustado al texto o personalizado`
 * `Copiado automático al portapapeles` al recuadrar
 
-![image](https://github.com/user-attachments/assets/c2b3e4ed-3afd-4237-9cd3-a2a16ed31d78)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1432359c-c799-472d-9f8e-d0a1f6c4fd40" alt="captura de recuadrator">
+</p>
 
 
