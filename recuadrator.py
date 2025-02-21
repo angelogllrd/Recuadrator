@@ -20,20 +20,31 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PyQt5.QtCore import QRegExp, QTimer
 from PyQt5.QtGui import QRegExpValidator, QIcon
 from PyQt5 import uic
-import sys
+import sys, os
+
+
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
 
-        uic.loadUi('recuadrator.ui', self) # Cargo el archivo .ui
+        uic.loadUi(resource_path('recuadrator.ui'), self) # Cargo el archivo .ui
 
         self.setWindowTitle('Recuadrador de texto para código') # Pongo título a la ventana
 
-        self.setWindowIcon(QIcon('icono.ico')) # Establezco el ícono de la ventana
+        self.setWindowIcon(QIcon(resource_path('icono.ico'))) # Establezco el ícono de la ventana
 
-        self.label_copiado.hide() # Oculto inicialmente el QLabel de texto copiado
+        # self.label_copiado.hide() # Oculto inicialmente el QLabel de texto copiado
 
         # Restrinjo los QLineEdit a un solo caracter
         regex = QRegExp(r'.{1}')
@@ -131,8 +142,10 @@ class MainWindow(QMainWindow):
     def mostrarEtiqueta(self):
         """Muestra el QLabel de copiado y lo oculta después de 2 segundos."""
 
-        self.label_copiado.show()
-        QTimer.singleShot(2000, self.label_copiado.hide)
+        self.label_copiado.setText('Texto copiado al portapapeles')
+        QTimer.singleShot(2000, lambda: self.label_copiado.setText(''))
+        # self.label_copiado.show()
+        # QTimer.singleShot(2000, self.label_copiado.hide)
 
 
 # Inicializo la app
